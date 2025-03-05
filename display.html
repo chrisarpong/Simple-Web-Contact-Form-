@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Submitted Information</h2>
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Issue Type:</strong> <span id="displayIssue"></span></p>
+        <p><strong>Message:</strong></p>
+        <p id="displayMessage"></p>
+
+        <button onclick="editForm()">Edit</button>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("displayName").innerText = urlParams.get("name");
+        document.getElementById("displayEmail").innerText = urlParams.get("email");
+        document.getElementById("displayIssue").innerText = urlParams.get("issue");
+        document.getElementById("displayMessage").innerText = urlParams.get("message");
+
+        function editForm() {
+            window.location.href = "index.html?" + window.location.search.substring(1);
+        }
+    </script>
+</body>
+</html>
