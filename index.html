@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class = "form-container">
-        <h1>Contact us</h1>
+    <div class="container">
+        <h2>Contact Us</h2>
         <form id="contactForm" action="display.html" method="GET">
-            <!--Name field -->
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <!--email field -->
+            <input type="text" id="name" name="name" required><br>
+
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required><br><br>
-            <!--dropdown for issue type -->
-            <label for="issue">Issue:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="issue">Issue Type:</label>
             <select id="issue" name="issue" required>
-                <option value="">select an option</option>
                 <option value="Query">Query</option>
                 <option value="Feedback">Feedback</option>
-                <option value="complaint">Complaint</option>
-                <option value="other">Other</option><br>
+                <option value="Complaint">Complaint</option>
+                <option value="Other">Other</option>
             </select><br>
 
-            <!---Testarea -->
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" rows="4" required></textarea><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea><br>
 
-            <!--Submit button -->
-            <button type ="submit">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
