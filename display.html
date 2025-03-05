@@ -3,32 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submitted Data</title>
+    <title>Thank You!</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for the display page */
+        .thank-you-container {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        .thank-you-container h1 {
+            font-size: 2.5rem;
+            color: #ff758c;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-container p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .user-details {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .user-details h2 {
+            font-size: 1.8rem;
+            color: #ff7eb3;
+            margin-bottom: 15px;
+        }
+
+        .user-details p {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .back-button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            background: linear-gradient(45deg, #ff7eb3, #ff758c);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Submitted Information</h2>
-        <p><strong>Name:</strong> <span id="displayName"></span></p>
-        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
-        <p><strong>Issue Type:</strong> <span id="displayIssue"></span></p>
-        <p><strong>Message:</strong></p>
-        <p id="displayMessage"></p>
+    <div class="thank-you-container fade-in">
+        <h1>Thank You!</h1>
+        <p>We appreciate that you have brought your issue to us. Our team will review it and get back to you shortly.</p>
 
-        <button onclick="editForm()">Edit</button>
+        <div class="user-details fade-in">
+            <h2>Your Details:</h2>
+            <p><strong>Name:</strong> <span id="display-name"></span></p>
+            <p><strong>Email:</strong> <span id="display-email"></span></p>
+            <p><strong>Issue Type:</strong> <span id="display-issue"></span></p>
+            <p><strong>Message:</strong> <span id="display-message"></span></p>
+        </div>
+
+        <button class="back-button" onclick="window.location.href = 'index.html';">Back to Home</button>
     </div>
 
     <script>
-        // Get URL parameters
+        // Retrieve query parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById("displayName").innerText = urlParams.get("name");
-        document.getElementById("displayEmail").innerText = urlParams.get("email");
-        document.getElementById("displayIssue").innerText = urlParams.get("issue");
-        document.getElementById("displayMessage").innerText = urlParams.get("message");
 
-        function editForm() {
-            window.location.href = "index.html?" + window.location.search.substring(1);
-        }
+        // Display the user's input
+        document.getElementById("display-name").textContent = urlParams.get("name");
+        document.getElementById("display-email").textContent = urlParams.get("email");
+        document.getElementById("display-issue").textContent = urlParams.get("issue");
+        document.getElementById("display-message").textContent = urlParams.get("message");
     </script>
 </body>
 </html>

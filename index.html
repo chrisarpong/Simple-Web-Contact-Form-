@@ -7,31 +7,29 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-lite.min.js"></script>
-
 </head>
 <body>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form id="contactForm" action="display.html" method="GET">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+    <div class="container fade-in">
+        <h2 class="fade-in">Contact Us</h2>
+        <form id="contactForm" class="fade-in" action="display.html" method="GET">
+            <label class="fade-in" for="name">Name:</label>
+            <input class="fade-in" type="text" id="name" name="name" required><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+            <label class="fade-in" for="email">Email:</label>
+            <input class="fade-in" type="email" id="email" name="email" required><br>
 
-            <label for="issue">Issue Type:</label>
-            <select id="issue" name="issue" required>
+            <label class="fade-in" for="issue">Issue Type:</label>
+            <select class="fade-in" id="issue" name="issue" required>
                 <option value="Query">Query</option>
                 <option value="Feedback">Feedback</option>
                 <option value="Complaint">Complaint</option>
                 <option value="Other">Other</option>
             </select><br>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
+            <label class="fade-in" for="message">Message:</label>
+            <textarea class="fade-in" id="message" name="message"></textarea>
 
-
-            <button type="submit">Submit</button>
+            <button class="fade-in" type="submit">Submit</button>
         </form>
     </div>
 

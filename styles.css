@@ -1,75 +1,57 @@
+/* Blurry background for the contact form */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
+    background: url('4665.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
-}
-
-/* Doodle Background */
-body::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 300px;
-    height: 300px;
-    background: url('https://www.svgrepo.com/show/353748/doodle-cloud.svg') no-repeat center/contain;
-    opacity: 0.2;
-    z-index: -1;
-    animation: float 6s ease-in-out infinite;
-}
-
-body::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    right: -50px;
-    width: 250px;
-    height: 250px;
-    background: url('https://www.svgrepo.com/show/353743/doodle-waves.svg') no-repeat center/contain;
-    opacity: 0.2;
-    z-index: -1;
-    animation: float 6s ease-in-out infinite;
-}
-
-/* Floating animation for doodles */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-    100% { transform: translateY(0); }
 }
 
 .container {
     width: 50%;
     margin: 50px auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 10;
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+}
+
+/* Adjust container width for mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
 }
 
 h2 {
     text-align: center;
 }
 
+/* Label styling */
 label {
     display: block;
     margin: 10px 0 5px;
 }
 
+/* Input, select, and textarea styling */
 input, select, textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
 }
 
-/* Enhanced Submit Button */
+/* Button Styling */
 button {
     width: 100%;
     padding: 12px;
@@ -83,35 +65,14 @@ button {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 4px 10px rgba(255, 117, 140, 0.3);
-    position: relative;
-    overflow: hidden;
 }
 
-/* Button Hover Effect */
 button:hover {
     background: linear-gradient(45deg, #ff758c, #ff7eb3);
     box-shadow: 0px 6px 15px rgba(255, 117, 140, 0.5);
     transform: translateY(-3px);
 }
 
-/* Button Click Effect */
 button:active {
     transform: scale(0.95);
-}
-
-/* Subtle Glow Effect on Hover */
-button::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 50%);
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.3s ease-out;
-}
-
-button:hover::before {
-    transform: translate(-50%, -50%) scale(1);
 }
