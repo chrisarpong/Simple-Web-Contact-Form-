@@ -1,8 +1,44 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Doodle Background */
+body::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background: url('https://www.svgrepo.com/show/353748/doodle-cloud.svg') no-repeat center/contain;
+    opacity: 0.2;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: url('https://www.svgrepo.com/show/353743/doodle-waves.svg') no-repeat center/contain;
+    opacity: 0.2;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Floating animation for doodles */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
 }
 
 .container {
@@ -12,6 +48,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 h2 {
@@ -31,16 +69,49 @@ input, select, textarea {
     border-radius: 4px;
 }
 
+/* Enhanced Submit Button */
 button {
     width: 100%;
-    padding: 10px;
-    background: #28a745;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff7eb3, #ff758c);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 117, 140, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Button Hover Effect */
 button:hover {
-    background: #218838;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    box-shadow: 0px 6px 15px rgba(255, 117, 140, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Button Click Effect */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Subtle Glow Effect on Hover */
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 50%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease-out;
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
 }
